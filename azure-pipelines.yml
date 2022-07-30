@@ -25,5 +25,5 @@ steps:
     script: |
       #!/bin/bash
       az login 
-      az group create --name AjResourceGroup --location East Asia
-      az acr create --resource-group AjResourceGroup --name Ajithacrrepo --sku Standard --location East Asia
+      az group create --name AjResourceGroup --location Central US
+      az acr create --resource-group AjResourceGroup --name Ajacrrepo --sku Standard --location Central US
