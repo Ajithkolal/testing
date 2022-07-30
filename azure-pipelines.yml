@@ -26,4 +26,4 @@ steps:
       #!/bin/bash
       az login 
       az group create --name AjithResourceGroup --location southcentralus
-      az acr create --resource-group AjithResourceGroup --name myacrrepo31 --sku Standard --location southcentralus
+      az acr create --resource-group AjithResourceGroup --name myacrrepo --sku Standard --location southcentralus
