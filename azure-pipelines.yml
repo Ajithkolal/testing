@@ -26,4 +26,4 @@ steps:
       #!/bin/bash
       az login 
       az group create --name AResourceGroup --location eastasia
-      az acr create --resource-group AResourceGroup --name Aacrrepo --location eastasia
+      az acr create --resource-group AResourceGroup --name ajjuacrrepo --sku Standard --location eastasia
