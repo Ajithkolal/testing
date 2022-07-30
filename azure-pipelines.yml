@@ -27,3 +27,6 @@ steps:
       az login 
       az group create --name AResourceGroup --location eastasia
       az acr create --resource-group AResourceGroup --name ajjuacrrepo --sku Standard --location eastasia
+      az aks create --resource-group AResourceGroup --name ajjuAKSCluster --node-count 2 --enable-addons monitoring --generate-ssh-keys
+      az aks show --name ajjuAKSCluster --resource-group AResourceGroup
+      az aks get-credentials --resource-group AResourceGroup --name ajjuAKSCluster --overwrite-existing
