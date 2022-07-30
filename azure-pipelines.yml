@@ -1,19 +1,29 @@
-# Docker
-# Build a Docker image
-# https://docs.microsoft.com/azure/devops/pipelines/languages/docker
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
 
+trigger:
+- main
 
+pool:
+  vmImage: 'ubuntu-latest'
 
+steps:
+- script:
+    echo Hello, world!
+  displayName: 'Run a one-line script'
 
-    pool:
-      vmImage: ubuntu-latest
-- task: CmdLine@2
+- script: |
+    echo Add other tasks to build, test, and deploy your project.
+    echo See https://aka.ms/yaml
+  displayName: 'Run a multi-line script'
+- task: Bash@3
+  displayName: VMCreate
   inputs:
+    targetType: 'inline'
     script: |
-      az login
-      az group create --name myResourceGroup --location Eastasia
-      az acr create --resource-group myResourceGroup --name myacrrepo31 --sku Standard --location Eastasia
-
-    
-        
-        
+      #!/bin/bash
+      az login 
+      az group create --name AjithResourceGroup --location southcentralus
+      az acr create --resource-group AjithResourceGroup --name myacrrepo31 --sku Standard --location southcentralus
