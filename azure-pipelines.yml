@@ -30,4 +30,4 @@ steps:
       az acr create --resource-group SResourceGroup --name sacrrepo --sku Standard --location eastasia
       az aks create --resource-group SResourceGroup --name SAKSCluster --node-count 2 --enable-addons monitoring --generate-ssh-keys
       az aks show --name SAKSCluster --resource-group SResourceGroup
-       az aks get-credentials --resource-group SResourceGroup --name SAKSCluster --overwrite-existing
+      az aks get-credentials --resource-group SResourceGroup --name SAKSCluster --overwrite-existing
