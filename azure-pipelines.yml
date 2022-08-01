@@ -25,13 +25,9 @@ steps:
     targetType: 'inline'
     script: |
       #!/bin/bash
-      az login --tenant 30b9e62d-f376-4116-9d17-bc4a7bb87915
-      az account show --output yaml
-      az group create --name ajithrg --location eastasia
-      az network vnet create -g ajithrg -n ajithvnet --address-prefix 10.0.0.0/16 \
-                --subnet-name ajithsubnet --subnet-prefix 10.0.0.0/24
-      az network nsg create -g ajithrg -n ajithnsg
-      az network nic create -g ajithrg --vnet-name ajithvnet --subnet ajithsubnet -n ajithnic
-      az network nic ip-config create -g ajithrg -n binduipConfig --nic-name ajithnic --make-primary
-      az vm create -n ajithmaster -g ajithrg --image UbuntuLTS --public-ip-sku Standard --custom-data jenkins.txt --authentication-type password --admin-username azureuser --admin-password Ajith@123456789
-      az vm open-port --port 8080 --resource-group ajithrg --name ajithmaster
+      az login 
+      az group create --name SResourceGroup --location eastasia
+      az acr create --resource-group SResourceGroup --name sacrrepo --sku Standard --location eastasia
+      az aks create --resource-group SResourceGroup --name SAKSCluster --node-count 2 --enable-addons monitoring --generate-ssh-keys
+      az aks show --name SAKSCluster --resource-group SResourceGroup
+       az aks get-credentials --resource-group SResourceGroup --name SAKSCluster --overwrite-existing
