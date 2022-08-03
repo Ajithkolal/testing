@@ -27,7 +27,7 @@ stages:
         containerRegistry: 'Ajithreg'
         repository: '$(imagename)'
         command: 'buildAndPush'
-        Dockerfile: '$(Build.SourcesDirectory)/Dockerfile'
+        Dockerfile: '$(Build.SourcesDirectory)/app/Dockerfile'
         tags: |
           $(tag)
           latest
